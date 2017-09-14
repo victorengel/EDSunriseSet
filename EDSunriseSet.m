@@ -379,7 +379,7 @@ static const int kSecondsInHour= 60.0*60.0;
     
     // Calculate sunrise and sunset
     double rise=0.0, set=0.0;
-    [self sunRiseSetForYear:(int)[dateComponents year] month:(int)[dateComponents month] day:(int)[dateComponents day] longitude:self.longitude latitude:self.latitude
+    [self sunRiseSetForYear:(int)dateComponents.year month:(int)dateComponents.month day:(int)dateComponents.day longitude:self.longitude latitude:self.latitude
                       trise:&rise tset:&set ];
     NSTimeInterval secondsRise  = rise*kSecondsInHour;
     NSTimeInterval secondsSet   = set*kSecondsInHour;
@@ -399,7 +399,7 @@ static const int kSecondsInHour= 60.0*60.0;
     
     if (self.altitudeForTwilight) {
         // Civil twilight
-        [self customTwilightForYear:(int)[dateComponents year] month:(int)[dateComponents month] day:(int)[dateComponents day] longitude:self.longitude latitude:self.latitude
+        [self customTwilightForYear:(int)dateComponents.year month:(int)dateComponents.month day:(int)dateComponents.day longitude:self.longitude latitude:self.latitude
                              trise:&start tset:&end ];
         self.customTwilightStart = [self utcTime:dateComponents withOffset:(NSTimeInterval)(start*kSecondsInHour)];
         self.customTwilightEnd  = [self utcTime:dateComponents withOffset:(NSTimeInterval)(end*kSecondsInHour)];
@@ -407,7 +407,7 @@ static const int kSecondsInHour= 60.0*60.0;
         self.localCustomTwilightEnd = [self localTime:self.customTwilightEnd];
     } else {
         // Civil twilight
-        [self civilTwilightForYear:(int)[dateComponents year] month:(int)[dateComponents month] day:(int)[dateComponents day] longitude:self.longitude latitude:self.latitude
+        [self civilTwilightForYear:(int)dateComponents.year month:(int)dateComponents.month day:(int)dateComponents.day longitude:self.longitude latitude:self.latitude
                              trise:&start tset:&end ];
         self.civilTwilightStart = [self utcTime:dateComponents withOffset:(NSTimeInterval)(start*kSecondsInHour)];
         self.civilTwilightEnd  = [self utcTime:dateComponents withOffset:(NSTimeInterval)(end*kSecondsInHour)];
@@ -415,14 +415,14 @@ static const int kSecondsInHour= 60.0*60.0;
         self.localCivilTwilightEnd = [self localTime:self.civilTwilightEnd];
         
         // Nautical twilight
-        [self nauticalTwilightForYear:(int)[dateComponents year] month:(int)[dateComponents month] day:(int)[dateComponents day] longitude:self.longitude latitude:self.latitude
+        [self nauticalTwilightForYear:(int)dateComponents.year month:(int)dateComponents.month day:(int)dateComponents.day longitude:self.longitude latitude:self.latitude
                                 trise:&start tset:&end ];
         self.nauticalTwilightStart = [self utcTime:dateComponents withOffset:(NSTimeInterval)(start*kSecondsInHour)];
         self.nauticalTwilightEnd  = [self utcTime:dateComponents withOffset:(NSTimeInterval)(end*kSecondsInHour)];
         self.localNauticalTwilightStart = [self localTime:self.nauticalTwilightStart];
         self.localNauticalTwilightEnd = [self localTime:self.nauticalTwilightEnd];
         // Astronomical twilight
-        [self astronomicalTwilightForYear:(int)[dateComponents year] month:(int)[dateComponents month] day:(int)[dateComponents day] longitude:self.longitude latitude:self.latitude
+        [self astronomicalTwilightForYear:(int)dateComponents.year month:(int)dateComponents.month day:(int)dateComponents.day longitude:self.longitude latitude:self.latitude
                                     trise:&start tset:&end ];
         self.astronomicalTwilightStart = [self utcTime:dateComponents withOffset:(NSTimeInterval)(start*kSecondsInHour)];
         self.astronomicalTwilightEnd  = [self utcTime:dateComponents withOffset:(NSTimeInterval)(end*kSecondsInHour)];
