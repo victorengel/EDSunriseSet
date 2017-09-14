@@ -127,6 +127,18 @@
     XCTAssertTrue(self.testSunriseSet.localCustomTwilightStart.second == self.testSunriseSet.localCustomTwilightEnd.second);
 }
 
+- (void)testCustomTwilightAltitudeTooHigh {
+    self.testSunriseSet = [EDSunriseSet sunrisesetWithDate:self.testDate timezone:self.testTimeZone latitude:self.latitude longitude:self.longitude forAltitude:95.0];
+    // Cannot have an altitude higher than 90 degrees.
+    XCTAssertNil(self.testSunriseSet);
+}
+
+- (void)testCustomTwilightAltitudeTooLow {
+    self.testSunriseSet = [EDSunriseSet sunrisesetWithDate:self.testDate timezone:self.testTimeZone latitude:self.latitude longitude:self.longitude forAltitude:-95.0];
+    // Cannot have an altitude lower than 90 degrees.
+    XCTAssertNil(self.testSunriseSet);
+}
+
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
