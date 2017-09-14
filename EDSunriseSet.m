@@ -469,9 +469,10 @@ static const int kSecondsInHour= 60.0*60.0;
 }
 
 +(EDSunriseSet*)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)tz latitude:(double)latitude longitude:(double)longitude forAltitude:(double)altitudeForTwilight {
-   EDSunriseSet *sunriseSet = [[EDSunriseSet alloc] initWithDate:date timezone:tz latitude:latitude longitude:longitude];
-   sunriseSet.altitudeForTwilight = altitudeForTwilight;
-   return sunriseSet;
+    EDSunriseSet *sunriseSet = [[EDSunriseSet alloc] initWithDate:date timezone:tz latitude:latitude longitude:longitude];
+    sunriseSet.altitudeForTwilight = altitudeForTwilight;
+    [sunriseSet calculate];
+    return sunriseSet;
 }
 
 @end
