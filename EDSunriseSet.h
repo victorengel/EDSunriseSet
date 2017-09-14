@@ -34,6 +34,19 @@
 @property (readonly, strong) NSDate *astronomicalTwilightStart;
 @property (readonly, strong) NSDate *astronomicalTwilightEnd;
 
+/*
+ Start time for twilight calculated at solar altitude set in convenience initializer:
+ +sunrisesetWithDate:timezone:latitude:longitude:forAltitude:
+ */
+@property (readonly, strong) NSDate *customTwilightStart;
+
+/*
+ End time for twilight calculated at solar altitude set in convenience initializer:
+ +sunrisesetWithDate:timezone:latitude:longitude:forAltitude:
+ */
+@property (readonly, strong) NSDate *customTwilightEnd;
+@property (readonly) double altitudeForTwilight;
+
 @property (readonly, strong) NSDateComponents* localSunrise;
 @property (readonly, strong) NSDateComponents* localSunset;
 @property (readonly, strong) NSDateComponents* localCivilTwilightStart;
@@ -42,10 +55,13 @@
 @property (readonly, strong) NSDateComponents* localNauticalTwilightEnd;
 @property (readonly, strong) NSDateComponents* localAstronomicalTwilightStart;
 @property (readonly, strong) NSDateComponents* localAstronomicalTwilightEnd;
+@property (readonly, strong) NSDateComponents* localCustomTwilightStart;
+@property (readonly, strong) NSDateComponents* localCustomTwilightEnd;
 
 
 -(instancetype)initWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude NS_DESIGNATED_INITIALIZER;
 +(instancetype)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude;
++(instancetype)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude forAltitude:(double)altitudeForTwilight;
 -(instancetype) init __attribute__((unavailable("init not available. Use initWithDate:timeZone:latitude:longitude: instead")));
 
 @end
