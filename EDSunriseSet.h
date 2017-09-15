@@ -45,7 +45,7 @@
  +sunrisesetWithDate:timezone:latitude:longitude:forAltitude:
  */
 @property (readonly, strong) NSDate *customTwilightEnd;
-@property (nonatomic) double altitudeForTwilight;
+@property (readonly) double altitudeForTwilight;
 
 @property (readonly, strong) NSDateComponents* localSunrise;
 @property (readonly, strong) NSDateComponents* localSunset;
