@@ -59,9 +59,16 @@
 @property (readonly, strong) NSDateComponents* localCustomTwilightEnd;
 
 
--(instancetype)initWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithDate:(NSDate*)date
+                   timezone:(NSTimeZone*)timezone
+                   latitude:(double)latitude
+                  longitude:(double)longitude
+                   altitude:(double)altitude NS_DESIGNATED_INITIALIZER;
+
+
 +(instancetype)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude;
 +(instancetype)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude forAltitude:(double)altitudeForTwilight;
 -(instancetype) init __attribute__((unavailable("init not available. Use initWithDate:timeZone:latitude:longitude: instead")));
+-(void)calculate;
 
 @end
