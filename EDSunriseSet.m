@@ -70,7 +70,6 @@
 @property (readwrite, strong) NSDate *astronomicalTwilightEnd;
 @property (readwrite, strong) NSDate *customTwilightStart;
 @property (readwrite, strong) NSDate *customTwilightEnd;
-@property (readwrite) double altitudeForTwilight;
 
 @property (readwrite, strong) NSDateComponents* localSunrise;
 @property (readwrite, strong) NSDateComponents* localSunset;
