@@ -57,6 +57,7 @@
 @property (readonly, strong) NSDateComponents* localAstronomicalTwilightEnd;
 @property (readonly, strong) NSDateComponents* localCustomTwilightStart;
 @property (readonly, strong) NSDateComponents* localCustomTwilightEnd;
+@property (readonly) CGFloat declination;
 
 
 -(instancetype)initWithDate:(NSDate*)date
