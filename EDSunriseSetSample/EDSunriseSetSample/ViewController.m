@@ -96,7 +96,7 @@ static NSInteger const kAstronomicalEndRow = 7;
     double longitude = [self.cities[index][kCityLongitude] doubleValue];
     double latitude = [self.cities[index][kCityLatitude] doubleValue];
     
-    self.sunriset = [[EDSunriseSet alloc] initWithDate:date timezone:tz latitude:latitude longitude:longitude];
+    self.sunriset = [[EDSunriseSet alloc] initWithDate:date timezone:tz latitude:latitude longitude:longitude altitude:0];
     self.dateFormatter.timeZone = tz;
     [self.tableView reloadData];
     
