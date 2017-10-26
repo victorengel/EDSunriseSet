@@ -82,12 +82,21 @@
 @property (readwrite, strong) NSDateComponents* localAstronomicalTwilightEnd;
 @property (readwrite, strong) NSDateComponents* localCustomTwilightStart;
 @property (readwrite, strong) NSDateComponents* localCustomTwilightEnd;
-@property (readwrite) CGFloat declination;
+@property (readwrite) double declination;
 
 @end
 
 #pragma mark - Calculations from sunriset.c
-@implementation EDSunriseSet(Calculations)
+
+//@interface EDSunriseSet(Calculations)
+//
+//@property (readwrite) CGFloat declination;
+//
+//@end
+
+
+//@implementation EDSunriseSet(Calculations)
+@implementation EDSunriseSet
 
 /*****************************************/
 /* Reduce angle to within 0..360 degrees */
@@ -321,12 +330,18 @@ __sunriset__( year, month, day, lon, lat, -35.0/60.0, 1, rise, set, declination 
 }  /* __sunriset__ */
 
 
-@end
+//@end
 
 
 #pragma mark - Private Implementation
 
-@implementation EDSunriseSet(Private)
+//@interface EDSunriseSet(Private)
+//
+//@property (readwrite) CGFloat declination;
+//
+//@end
+
+//@implementation EDSunriseSet(Private)
 
 static const int kSecondsInHour= 60.0*60.0;
 
@@ -440,12 +455,12 @@ static const int kSecondsInHour= 60.0*60.0;
     [self calculateTwilight];
 }
 
-@end
+//@end
 
 
 #pragma mark - Public Implementation
 
-@implementation EDSunriseSet
+//@implementation EDSunriseSet
 
 #pragma mark - Initialization
 
